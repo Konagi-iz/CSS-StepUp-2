@@ -30,13 +30,13 @@
 			<nav class="nav">
 				<ul class="nav-list">
 					<li class="nav-list__item">
-						<a href="" class="nav-list__link">ABOUT</a>
+						<a href="#about" class="nav-list__link">ABOUT</a>
 					</li>
 					<li class="nav-list__item">
-						<a href="" class="nav-list__link">WORKS</a>
+						<a href="#works" class="nav-list__link">WORKS</a>
 					</li>
 					<li class="nav-list__item">
-						<a href="" class="nav-list__link">CONTACT</a>
+						<a href="#contact" class="nav-list__link">CONTACT</a>
 					</li>
 				</ul>
 			</nav>
@@ -48,18 +48,18 @@
 				<h1 class="fv__ttl">KANI WO NAMERAKANI</h1>
 				<ul class="fv-list">
 					<li class="fv-list__item">
-						<a href="" class="fv-list__link"> ABOUT </a>
+						<a href="#about" class="fv-list__link"> ABOUT </a>
 					</li>
 					<li class="fv-list__item">
-						<a href="" class="fv-list__link"> WORKS </a>
+						<a href="#works" class="fv-list__link"> WORKS </a>
 					</li>
 					<li class="fv-list__item">
-						<a href="" class="fv-list__link"> CONTACT </a>
+						<a href="#contact" class="fv-list__link"> CONTACT </a>
 					</li>
 				</ul>
 			</section>
 
-			<section class="about">
+			<section class="about" id="about">
 				<div class="about-ttl-cnt">
 					<h2 class="about-ttl">
 						ABOUT<br />
@@ -88,16 +88,51 @@
 				</div>
 			</section>
 
-			<section class="works">
+			<section class="works" id="works">
 				<div class="works-head">
 					<div class="works-head-ttl">
 						<h2 class="works-head-ttl__main">
 							KANI<br />
 							WORKS
 						</h2>
-						<a href="" class="works-head-ttl__btn"
-							>VIEW ALL WORKS
+						<a href="" class="works-head-btn">
+							<span class="works-head-btn__txt"
+								>VIEW ALL WORKS</span
+							>
 							<svg
+								class="works-head-btn__icon"
+								width="16"
+								height="16"
+								viewBox="0 0 16 16"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<g clip-path="url(#clip0_103_44)">
+									<path
+										d="M14.6667 1.33337L1.33334 14.6667"
+										stroke="white"
+										stroke-width="1.33333"
+										stroke-miterlimit="10"
+									/>
+									<path
+										d="M14.6667 10.5V1.33337H5.5"
+										stroke="white"
+										stroke-width="1.33333"
+										stroke-miterlimit="10"
+									/>
+								</g>
+								<defs>
+									<clipPath id="clip0_103_44">
+										<rect
+											width="16"
+											height="16"
+											fill="white"
+										/>
+									</clipPath>
+								</defs>
+							</svg>
+							<svg
+								class="works-head-btn__icon"
 								width="16"
 								height="16"
 								viewBox="0 0 16 16"
@@ -138,41 +173,58 @@
 				</div>
 				<ul class="works-list">
 					<li class="works-list__item">
-						<img
-							src="./img/img_04.jpg"
-							alt=""
-							class="works-list__img"
-						/>
-						<p class="works-list__name">WORK 01</p>
+						<a href="" class="works-list__link">
+							<div class="works-list__img-wrap">
+								<img
+									src="./img/img_04.jpg"
+									alt=""
+									class="works-list__img"
+								/>
+							</div>
+							<p class="works-list__name">WORK 01</p>
+						</a>
 					</li>
 					<li class="works-list__item">
-						<img
-							src="./img/img_05.jpg"
-							alt=""
-							class="works-list__img"
-						/>
-						<p class="works-list__name">WORK 02</p>
+						<a href="" class="works-list__link">
+							<div class="works-list__img-wrap">
+								<img
+									src="./img/img_05.jpg"
+									alt=""
+									class="works-list__img"
+								/>
+							</div>
+							<p class="works-list__name">WORK 02</p>
+						</a>
 					</li>
 					<li class="works-list__item">
-						<img
-							src="./img/img_06.jpg"
-							alt=""
-							class="works-list__img"
-						/>
-						<p class="works-list__name">WORK 03</p>
+						<a href="" class="works-list__link">
+							<div class="works-list__img-wrap">
+								<img
+									src="./img/img_06.jpg"
+									alt=""
+									class="works-list__img"
+								/>
+							</div>
+							<p class="works-list__name">WORK 03</p>
+						</a>
 					</li>
 				</ul>
 			</section>
 
-			<div class="loop-txt-wrap">
-				<p class="loop-txt">KANI WO NAMERA KANI</p>
+			<div class="loop-txt">
+				<div class="loop-txt__in">
+					<p class="loop-txt__txt">KANI WO NAMERA KANI</p>
+					<p class="loop-txt__txt">KANI WO NAMERA KANI</p>
+				</div>
 			</div>
 
-			<section class="contact">
+			<section class="contact" id="contact">
 				<h2 class="contact-ttl">
 					<a href="" class="contact-ttl__main">
-						<span>C</span><span>O</span><span>N</span><span>T</span
-						><span>A</span><span>C</span><span>T</span>
+						<span data-txt="C">C</span><span data-txt="O">O</span
+						><span data-txt="N">N</span><span data-txt="T">T</span
+						><span data-txt="A">A</span><span data-txt="C">C</span
+						><span data-txt="T">T</span>
 					</a>
 					<p class="contact-ttl__sub">(e-mail)</p>
 				</h2>
@@ -184,7 +236,7 @@
 						</li>
 						<li class="contact-sns-list__item">
 							<a href="" class="contact-sns-list__link">
-								X Instagram
+								Instagram
 							</a>
 						</li>
 						<li class="contact-sns-list__item">
@@ -196,5 +248,12 @@
 				</div>
 			</section>
 		</main>
+
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.min.js"
+			integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+			crossorigin="anonymous"
+		></script>
+		<script src="./js/index.js"></script>
 	</body>
 </html>

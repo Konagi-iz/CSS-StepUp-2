@@ -33,11 +33,25 @@
 		width: 100%;
 		height: 2px;
 		background: $c-white;
+		transition: opacity 0.6s $ease, top 0.4s $ease, transform 0.6s $ease;
 		&:nth-of-type(2) {
 			top: 7px;
 		}
 		&:nth-of-type(3) {
 			top: 14px;
+		}
+	}
+	&--open .menu__line {
+		&:nth-of-type(1) {
+			top: 7px;
+			transform: rotate(28deg);
+		}
+		&:nth-of-type(2) {
+			opacity: 0;
+		}
+		&:nth-of-type(3) {
+			top: 7px;
+			transform: rotate(-28deg);
 		}
 	}
 }
@@ -50,20 +64,64 @@
 	width: 100%;
 	height: 100vh;
 	background: $c-white;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.6s $ease, visibility 0.6s $ease;
+	&--active {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 .nav-list {
 	margin-left: 144px;
 	.nav-list__item {
+		position: relative;
+		width: 100%;
+		background: linear-gradient(
+			90deg,
+			#00698b 0%,
+			rgba(255, 255, 255, 0) 50%,
+			transparent 50%
+		);
+		background-size: 200%;
+		background-position: 100%;
+		transition: background 0.6s $ease;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 15px;
+			transform: translateY(-50%);
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background: $c-white;
+			opacity: 0;
+			transition: opacity 0.6s $ease;
+		}
+		&:hover {
+			background-position: 0;
+		}
+		&:hover::after {
+			opacity: 1;
+		}
+		&:hover .nav-list__link {
+			color: $c-white;
+			transform: translateX(50px);
+		}
 	}
 	.nav-list__link {
-        position: relative;
-        color: $c-black;
-        font-family: $f-en;
+		position: relative;
+		display: inline-block;
+		color: $c-black;
+		font-family: $f-en;
 		font-size: 72px;
-        font-weight: bold;
+		font-weight: bold;
 		line-height: 1.5;
+		transition: transform 0.6s $ease, color 0.4s $ease;
 	}
 }
+
 // fv
 .fv {
 	position: relative;
@@ -97,10 +155,25 @@
 	justify-content: center;
 	gap: 25px;
 	.fv-list__link {
+		position: relative;
 		font-family: $f-en;
 		font-size: 16px;
 		font-weight: bold;
 		line-height: 1.5;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background: $c-white;
+			transform: scale(0, 1);
+			transition: transform 0.4s $ease;
+		}
+		&:hover::after {
+			transform: scale(1, 1);
+		}
 	}
 }
 
@@ -140,6 +213,11 @@
 		font-size: 16px;
 		font-weight: bold;
 		line-height: 1.5;
+		transition: background 0.4s $ease, color 0.4s $ease;
+		&:hover {
+			background: $c-white;
+			color: $c-black;
+		}
 	}
 }
 .about-img-cnt {
@@ -178,14 +256,51 @@
 		font-weight: bold;
 		line-height: 1.25;
 	}
-	.works-head-ttl__btn {
-		display: flex;
-		align-items: center;
-		gap: 12px;
-		margin-top: 68px;
+}
+.works-head-btn {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	overflow: hidden;
+	width: fit-content;
+	margin-top: 68px;
+	.works-head-btn__txt {
+		width: fit-content;
 		font-family: $f-en;
 		font-size: 16px;
 		font-weight: bold;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background: $c-white;
+			transform: scale(0, 1);
+			transform-origin: right;
+			transition: transform 0.6s $ease;
+		}
+	}
+	.works-head-btn__icon {
+		transition: transform 0.6s $ease;
+		&:nth-of-type(2) {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			transform: translate(-200%, 200%);
+		}
+	}
+	&:hover .works-head-btn__icon:nth-of-type(1) {
+		transform: translate(200%, -200%);
+	}
+	&:hover .works-head-btn__icon:nth-of-type(2) {
+		transform: translate(0, 0);
+	}
+	&:hover .works-head-btn__txt::after {
+		transform: scale(1, 1);
+		transform-origin: left;
 	}
 }
 .works-list {
@@ -197,8 +312,21 @@
 		position: relative;
 		width: fit-content;
 	}
+	.works-list__link {
+		&:hover .works-list__img {
+			transform: scale(1.1);
+		}
+		&:hover .works-list__name::after {
+			transform: scale(1, 1);
+			transform-origin: left;
+		}
+	}
+	.works-list__img-wrap {
+		overflow: hidden;
+	}
 	.works-list__img {
 		width: 672px;
+		transition: transform 0.6s $ease;
 	}
 	.works-list__name {
 		position: absolute;
@@ -208,22 +336,48 @@
 		font-size: 64px;
 		font-weight: bold;
 		line-height: 1.5;
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 10px;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background: $c-white;
+			transform: scale(0, 1);
+			transform-origin: right;
+			transition: transform 0.4s $ease;
+		}
 	}
 }
 
 // loop-txt
-.loop-txt-wrap {
+.loop-txt {
 	width: 100%;
 	overflow: hidden;
+	.loop-txt__in {
+		display: flex;
+		gap: 10px;
+		width: fit-content;
+		animation: loop-txt 10s linear infinite;
+	}
+	.loop-txt__txt {
+		opacity: 0.1;
+		margin-top: 206px;
+		font-family: $f-en;
+		font-size: 128px;
+		font-weight: bold;
+		line-height: 1;
+		white-space: nowrap;
+	}
 }
-.loop-txt {
-	opacity: 0.1;
-	margin-top: 206px;
-	font-family: $f-en;
-	font-size: 128px;
-	font-weight: bold;
-	line-height: 1;
-	white-space: nowrap;
+@keyframes loop-txt {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
 }
 
 // contact
@@ -235,10 +389,31 @@
 .contact-ttl {
 	text-align: center;
 	.contact-ttl__main {
+		display: inline-block;
+		overflow: hidden;
 		font-family: $f-en;
 		font-size: 128px;
 		font-weight: bold;
 		line-height: 1;
+		span {
+			position: relative;
+			display: inline-block;
+			@for $i from 1 through 7 {
+				&:nth-child(#{$i}) {
+					transition: transform .8s $ease #{0.04 * $i - 0.04}s;
+				}
+			}
+			&::after {
+				content: attr(data-txt);
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translate(-50%, 100%);
+			}
+		}
+		&:hover span {
+			transform: translateY(-100%);
+		}
 	}
 	.contact-ttl__sub {
 		font-family: $f-en;
@@ -268,10 +443,18 @@
 		padding-block: 8px;
 		border: 1px solid $c-white;
 		border-radius: 999px;
+		background: linear-gradient(to left, transparent 50%, $c-white 50%);
+		background-size: 200%;
+		background-position: 100%;
 		font-family: $f-en;
 		font-size: 16px;
 		font-weight: bold;
 		line-height: 1.5;
 		text-align: center;
+		transition: background 0.4s $ease, color 0.4s $ease;
+		&:hover {
+			background-position: 0;
+			color: $c-black;
+		}
 	}
 }

@@ -3,6 +3,7 @@
 @use "_common.scss" as *;
 
 html {
+	scroll-behavior: smooth;
 	font-size: 16px;
 }
 body {
